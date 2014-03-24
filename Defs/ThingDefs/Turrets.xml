@@ -113,7 +113,7 @@
 			<burstShotCount>1</burstShotCount>
 			<fireSound>GunShotA</fireSound>
 		</verb>
-		<researchPrerequisite>ResearchFragTurret</researchPrerequisite>
+		
 	</ThingDef>
 
 	<ThingDef ParentName="BuildingBase">
@@ -160,6 +160,7 @@
 			</li>
 		</filthLeavings>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<researchPrerequisite>ResearchFragTurret</researchPrerequisite>
 		<surfaceNeeded>Light</surfaceNeeded>
 		<designationCategory>Security</designationCategory>
 		<placingDisplayRadius>20</placingDisplayRadius>
@@ -202,7 +203,6 @@
 			<burstShotCount>1</burstShotCount>
 			<fireSound>GunShotA</fireSound>
 		</verb>
-		<researchPrerequisite>ResearchSniperTurret</researchPrerequisite>
 	</ThingDef>
 
 	<ThingDef ParentName="BuildingBase">
@@ -244,6 +244,7 @@
 			</li>
 		</filthLeavings>
 		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<researchPrerequisite>ResearchSniperTurret</researchPrerequisite>
 		<surfaceNeeded>Light</surfaceNeeded>
 		<designationCategory>Security</designationCategory>
 		<placingDisplayRadius>50</placingDisplayRadius>
