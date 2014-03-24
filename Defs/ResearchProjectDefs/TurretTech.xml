@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResearchResearchDefs>
+
+<!--
+	<ResearchResearchDef>
+			<defName>ResearchTurretNoExplode</defName>
+			<label>Safer turrets</label>
+			<descriptionBefore>Improvised turrets will no longer explode.</descriptionBefore>
+			<totalCost>10000</totalCost>
+			<prerequisites></prerequisites>
+	</ResearchResearchDef>
+-->
+	<ResearchResearchDef>
+			<defName>ResearchFragTurret</defName>
+			<label>Frag Turret</label>
+			<descriptionBefore>A turret with frag grenades. Does not explode upon destruction.</descriptionBefore>
+			<totalCost>10000</totalCost>
+			<prerequisites></prerequisites>
+	</ResearchResearchDef>
+
+	<ResearchResearchDef>
+			<defName>ResearchSniperTurret</defName>
+			<label>Sniper Turret</label>
+			<descriptionBefore>A sniper turret.</descriptionBefore>
+			<totalCost>10000</totalCost>
+			<prerequisites>ResearchFragTurret</prerequisites>
+	</ResearchResearchDef>
+
+
+</ResearchResearchDefs>

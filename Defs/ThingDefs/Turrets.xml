@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+	<!-- ============================================== -->
+	<!-- ==================BASE======================== -->
+	<!-- ============================================== -->
+
+	<ThingDef Name="BaseGun" Abstract="True">
+		<category>Item</category>
+		<eType>Equipment</eType>
+		<thingClass>Equipment</thingClass>
+		<label>Gun</label>
+		<equipmentType>Primary</equipmentType>
+		<isGun>True</isGun>
+		<pathCost>10</pathCost>
+		<useStandardHealth>True</useStandardHealth>
+		<selectable>True</selectable>
+		<maxHealth>100</maxHealth>
+		<altitudeLayer>Item</altitudeLayer>
+		<alwaysHaulable>True</alwaysHaulable>
+		<tickerType>Never</tickerType>
+		<storeCategories>
+			<li>Weapons</li>
+		</storeCategories>
+		<comps>
+			<li>
+				<compClass>CompForbiddable</compClass>
+			</li>
+		</comps>
+		<verb>
+			<id>Nonnative</id>
+			<verbClass>Verb_Shoot</verbClass>
+			<cooldownTicks>30</cooldownTicks>
+			<label>VerbGun</label>
+			<description>Verb fires bullets.</description>
+			<hasStandardCommand>true</hasStandardCommand>
+			<targetParams>
+				<canTargetPawns>true</canTargetPawns>
+				<canTargetBuildings>true</canTargetBuildings>
+				<worldObjectTargetsMustBeAutoAttackable>true</worldObjectTargetsMustBeAutoAttackable>
+			</targetParams>
+			<canMiss>true</canMiss>
+		</verb>
+	</ThingDef>
+
+	<ThingDef Name="BaseBullet" Abstract="True">
+		<category>Projectile</category>
+		<tickerType>Normal</tickerType>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<thingClass>Bullet</thingClass>
+		<label>Bullet</label>
+		<useStandardHealth>False</useStandardHealth>
+		<neverMultiSelect>True</neverMultiSelect>
+		<baseMaterialType>Transparent</baseMaterialType>
+	</ThingDef>
+
+	<ThingDef Name="BaseGrenade" Abstract="True">
+		<category>Projectile</category>
+		<altitudeLayer>Projectile</altitudeLayer>
+		<thingClass>Projectile</thingClass>
+		<label>Projectile</label>
+		<tickerType>Normal</tickerType>
+		<useStandardHealth>False</useStandardHealth>
+		<neverMultiSelect>True</neverMultiSelect>
+		<baseMaterialType>Transparent</baseMaterialType>
+		<projectile>
+			<speed>12</speed>
+			<impactWorld>true</impactWorld>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<bulletImpactSound>BulletImpactMetal</bulletImpactSound>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<constructionEffect>ConstructMetal</constructionEffect>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+
+	<!-- ============================================== -->
+	<!-- ============== FRAG TURRETs ================== -->
+	<!-- ============================================== -->
+
+	<!-- Modified a little from Core --> 
+
+	<ThingDef ParentName="BaseGrenade">
+		<defName>Proj_GrenadeFrag</defName>
+		<label>Frag grenade</label>
+		<thingClass>Projectile_Explosive</thingClass>
+		<texturePath>Things/Projectile/Grenade</texturePath>
+		<projectile>
+			<explosionRadius >1.9</explosionRadius >
+			<damageType>Bomb</damageType>
+			<explosionDelay>50</explosionDelay>
+			<randomMissRadius>1.0</randomMissRadius>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGun">
+		<defName>Gun_FragTurret</defName>
+		<label>Improvised frag turret</label>
+		<menuHidden>true</menuHidden>
+		<description>Jury-rigged frag launcher attached to a turret.</description>
+		<texturePath>Things/Item/Equipment/Default</texturePath>
+		<interactSound>InteractBoltActionRifle</interactSound>
+		<verb>
+			<projectileDef>Proj_GrenadeFrag</projectileDef>
+			<warmupTicks>50</warmupTicks>
+			<range>20</range>
+			<accuracy>6</accuracy>
+			<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			<burstShotCount>1</burstShotCount>
+			<fireSound>GunShotA</fireSound>
+		</verb>
+		<researchPrerequisite>ResearchFragTurret</researchPrerequisite>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>FragTurret</defName>
+		<eType>Building_Turret</eType>
+		<label>Frag turret</label>
+		<thingClass> Building_TurretGun</thingClass>
+		<texturePath>Things/Building/TurretGun</texturePath>
+		<altitudeLayer>Waist</altitudeLayer>
+		<maxHealth>140</maxHealth>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li>
+				<compClass>CompExplosive</compClass>
+				<explosiveRadius>3.9</explosiveRadius>
+				<explosiveDamageType>Bomb</explosiveDamageType>
+			</li>
+			<li><compClass>CompForbiddable</compClass></li>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+		</comps>
+		<description>A frag turret that automatically fires at nearby enemies. Explodes when damaged.</description>
+		<flammability>1.0</flammability>
+		<size>(1,1)</size>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.4</fillPercent>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>180</count>
+			</li>
+		</costList>
+		<workToBuild>1000</workToBuild>
+		<overdraw>true</overdraw>
+		<combatTargetBuilding>true</combatTargetBuilding>
+		<beauty>Ugly</beauty>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>1</count>
+			</li>
+		</filthLeavings>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<designationCategory>Security</designationCategory>
+		<placingDisplayRadius>20</placingDisplayRadius>
+		<building>
+			<turretGunDef>Gun_FragTurret</turretGunDef>
+			<burstCooldownTicks>150</burstCooldownTicks>
+		</building>
+	</ThingDef>
+
+
+	<!-- ============================================== -->
+	<!-- ============== SNIPER TURRETs ================ -->
+	<!-- ============================================== -->
+
+	<!-- Modified a little from Core --> 
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_SniperTurret</defName>
+		<label>Sniper turret bullet</label>
+		<texturePath>Things/Projectile/Bullet_Small</texturePath>
+		<projectile>
+			<damageAmountBase>60</damageAmountBase>
+			<speed>100</speed>
+		</projectile>
+	</ThingDef>
+
+	<ThingDef ParentName="BaseGun">
+		<defName>Gun_SniperTurret</defName>
+		<label>Sniper turret</label>
+		<menuHidden>true</menuHidden>
+		<description>Jury-rigged sniper rifle attached to a turret.</description>
+		<texturePath>Things/Item/Equipment/Default</texturePath>
+		<interactSound>InteractBoltActionRifle</interactSound>
+		<verb>
+			<projectileDef>Bullet_SniperTurret</projectileDef>
+			<warmupTicks>5</warmupTicks>
+			<range>50</range>
+			<accuracy>9</accuracy>
+			<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			<burstShotCount>1</burstShotCount>
+			<fireSound>GunShotA</fireSound>
+		</verb>
+		<researchPrerequisite>ResearchSniperTurret</researchPrerequisite>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>SniperTurret</defName>
+		<eType>Building_Turret</eType>
+		<label>Sniper turret</label>
+		<thingClass> Building_TurretGun</thingClass>
+		<texturePath>Things/Building/TurretGun</texturePath>
+		<altitudeLayer>Waist</altitudeLayer>
+		<maxHealth>200</maxHealth>
+		<tickerType>Normal</tickerType>
+		<comps>
+			<li><compClass>CompForbiddable</compClass></li>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>350</basePowerConsumption>
+			</li>
+		</comps>
+		<description>A sniper turret that automatically fires at far away enemies. Does not explode when damaged.</description>
+		<flammability>1.0</flammability>
+		<size>(1,1)</size>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>0.4</fillPercent>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>160</count>
+			</li>
+		</costList>
+		<workToBuild>1000</workToBuild>
+		<overdraw>true</overdraw>
+		<combatTargetBuilding>true</combatTargetBuilding>
+		<beauty>Ugly</beauty>
+		<filthLeavings>
+			<li>
+				<thingDef>SlagRubble</thingDef>
+				<count>1</count>
+			</li>
+		</filthLeavings>
+		<leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<designationCategory>Security</designationCategory>
+		<placingDisplayRadius>50</placingDisplayRadius>
+		<building>
+			<turretGunDef>Gun_SniperTurret</turretGunDef>
+			<burstCooldownTicks>150</burstCooldownTicks>
+		</building>
+	</ThingDef>
+
+</Buildings>
+
+
