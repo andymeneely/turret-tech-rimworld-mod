@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Buildings>
+
+
+	<ThingDef Name="BuildingBase" Abstract="True">
+		<category>Building</category>
+		<bulletImpactSound>BulletImpactMetal</bulletImpactSound>
+		<selectable>true</selectable>
+		<drawerType>MapMeshAndRealTime</drawerType>
+		<surfaceNeeded>Light</surfaceNeeded>
+		<constructionEffect>ConstructMetal</constructionEffect>
+		<repairEffect>Repair</repairEffect>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase" Name="WallBase" Abstract="True">
+		<eType>Wall</eType>
+		<thingClass>Building</thingClass>
+		<linkDrawerType>CornerFiller</linkDrawerType>
+		<category>Building</category>
+		<blueprintTexturePath>Things/Building/Linked/Wall_Blueprint_Atlas</blueprintTexturePath>
+		<linkFlags>
+			<li>Wall</li>
+			<li>Rock</li>
+			<li>Minerals</li>
+		</linkFlags>
+		<altitudeLayer>BuildingTall</altitudeLayer>
+		<passability>Impassable</passability>
+		<castEdgeShadows>true</castEdgeShadows>
+		<fillPercent>1</fillPercent>
+		<coversFloor>true</coversFloor>
+		<placingDraggableDimensions>1</placingDraggableDimensions>
+		<tickerType>Never</tickerType>
+		<rotatable>false</rotatable>
+		<selectable>true</selectable>
+		<neverMultiSelect>true</neverMultiSelect>
+		<surfaceNeeded>Heavy</surfaceNeeded>
+		<holdsRoof>true</holdsRoof>
+		<designationCategory>Structure</designationCategory>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<roomBarrier>true</roomBarrier>
+		<blockLight>true</blockLight>
+	</ThingDef>
+
+	<ThingDef ParentName="WallBase">
+		<defName>HeavyWallStone</defName>
+		<eType>Wall</eType>
+		<label>HeavyStone wall</label>
+		<texturePath>Things/Building/Linked/WallStone_Atlas</texturePath>
+		<menuIconPath>Things/Building/Linked/WallStone_MenuIcon</menuIconPath>
+		<maxHealth>2500</maxHealth>
+		<flammability>0</flammability>
+		<description>A heavy stone wall. It could really stand for ages. It doesn't burn or transmit power.</description>
+		<workToBuild>200</workToBuild>
+		<costList>
+			<li>
+				<thingDef>StoneBlocks</thingDef>
+				<count>14</count>
+			</li>
+		</costList>
+		<filthLeavings>
+			<li>
+				<thingDef>RockRubble</thingDef>
+				<count>4</count>
+			</li>
+		</filthLeavings>
+	</ThingDef>
+
+	<ThingDef ParentName="BuildingBase">
+		<defName>HeavyDoor</defName>
+		<eType>Door</eType>
+		<label>Door</label>
+		<thingClass> Building_Door</thingClass>
+		<blueprintClass>Blueprint_Door</blueprintClass>
+		<category>Building</category>
+		<drawMat>null</drawMat>
+		<blueprintTexturePath>Things/Building/Door_Blueprint</blueprintTexturePath>
+		<menuIconPath>Things/Building/Door_MenuIcon</menuIconPath>
+		<altitudeLayer>DoorMoveable</altitudeLayer>
+		<fillPercent>1</fillPercent>
+		<useStandardHealth>true</useStandardHealth>
+		<maxHealth>2500</maxHealth>
+		<flammability>0</flammability>
+		<selectable>true</selectable>
+		<tickerType>Normal</tickerType>
+		<description>Seals rooms apart, with more blast protection and not flammable.</description>
+		<size>(1,1)</size>
+		<workToBuild>150</workToBuild>
+		<roomBarrier>true</roomBarrier>
+		<costList>
+			<li>
+				<thingDef>Metal</thingDef>
+				<count>25</count>
+			</li>
+			<li>
+				<thingDef>StoneBlocks</thingDef>
+				<count>50</count>
+			</li>
+		</costList>
+		<rotatable>false</rotatable>
+		<bulletImpactSound>BulletImpactMetal</bulletImpactSound>
+		<surfaceNeeded>Heavy</surfaceNeeded>
+		<designationCategory>Structure</designationCategory>
+		<comps>
+			<li>
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>50</basePowerConsumption>
+			</li>
+		</comps>
+		<holdsRoof>true</holdsRoof>
+		<staticSunShadowHeight>1.0</staticSunShadowHeight>
+		<transmitsPower>true</transmitsPower>
+		<blockLight>true</blockLight>
+	</ThingDef>
+
+
+</Buildings>
