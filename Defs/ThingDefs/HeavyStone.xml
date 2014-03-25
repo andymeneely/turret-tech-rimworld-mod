@@ -44,7 +44,7 @@
 	<ThingDef ParentName="WallBase">
 		<defName>HeavyWallStone</defName>
 		<eType>Wall</eType>
-		<label>HeavyStone wall</label>
+		<label>Heavy Stone Wall</label>
 		<texturePath>Things/Building/Linked/WallStone_Atlas</texturePath>
 		<menuIconPath>Things/Building/Linked/WallStone_MenuIcon</menuIconPath>
 		<maxHealth>2500</maxHealth>
@@ -68,7 +68,7 @@
 	<ThingDef ParentName="BuildingBase">
 		<defName>HeavyDoor</defName>
 		<eType>Door</eType>
-		<label>Door</label>
+		<label>Heavy Door</label>
 		<thingClass> Building_Door</thingClass>
 		<blueprintClass>Blueprint_Door</blueprintClass>
 		<category>Building</category>

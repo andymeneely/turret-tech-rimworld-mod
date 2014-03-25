@@ -195,10 +195,10 @@
 		<interactSound>InteractBoltActionRifle</interactSound>
 		<verb>
 			<projectileDef>Bullet_SniperTurret</projectileDef>
-			<warmupTicks>5</warmupTicks>
+			<warmupTicks>1</warmupTicks>
 			<range>50</range>
 			<accuracy>9</accuracy>
-			<ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+			<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
 			<burstShotCount>1</burstShotCount>
 			<fireSound>GunShotA</fireSound>
 		</verb>
@@ -249,7 +249,7 @@
 		<placingDisplayRadius>50</placingDisplayRadius>
 		<building>
 			<turretGunDef>Gun_SniperTurret</turretGunDef>
-			<burstCooldownTicks>150</burstCooldownTicks>
+			<burstCooldownTicks>250</burstCooldownTicks>
 		</building>
 	</ThingDef>
 
