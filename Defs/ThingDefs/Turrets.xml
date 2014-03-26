@@ -196,6 +196,7 @@
 		<verb>
 			<projectileDef>Bullet_SniperTurret</projectileDef>
 			<warmupTicks>1</warmupTicks>
+			<cooldownTicks>100</cooldownTicks>
 			<range>50</range>
 			<accuracy>9</accuracy>
 			<ticksBetweenBurstShots>9</ticksBetweenBurstShots>
