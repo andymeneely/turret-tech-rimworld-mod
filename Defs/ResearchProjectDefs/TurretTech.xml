@@ -5,26 +5,30 @@
 			<defName>ResearchFragTurret</defName>
 			<label>Frag Turret</label>
 			<descriptionBefore>A short range turret with frag grenades.</descriptionBefore>
-			<totalCost>10000</totalCost>
-			<prerequisites></prerequisites>
-	</ResearchProjectDef>
-
-	<ResearchProjectDef>
-			<defName>ResearchMultiFragTurret</defName>
-			<label>Multi-Frag Turret</label>
-			<descriptionBefore>A powerful short range turret that fires three frag grenades.</descriptionBefore>
-			<totalCost>10000</totalCost>
-			<prerequisites></prerequisites>
+			<totalCost>15000</totalCost>
+			<prerequisites>
+				<li>GunTurretCooling</li>
+			</prerequisites>
 	</ResearchProjectDef>
 
 	<ResearchProjectDef>
 			<defName>ResearchSniperTurret</defName>
 			<label>Sniper Turret</label>
 			<descriptionBefore>A long range sniper turret.</descriptionBefore>
-			<totalCost>10000</totalCost>
-			<prerequisites></prerequisites>
+			<totalCost>15000</totalCost>
+			<prerequisites>
+				<li>ResearchFragTurret</li>
+			</prerequisites>
 	</ResearchProjectDef>
 
-	
+	<ResearchProjectDef>
+			<defName>ResearchMultiFragTurret</defName>
+			<label>Multi-Frag Turret</label>
+			<descriptionBefore>A powerful short range turret that fires three frag grenades.</descriptionBefore>
+			<totalCost>15000</totalCost>
+			<prerequisites>
+				<li>ResearchSniperTurret</li>
+			</prerequisites>
+	</ResearchProjectDef>
 
 </ResearchProjectDefs>
